@@ -46,7 +46,7 @@ const DateRangePicker = ({
   buttonStyle,
   buttonTextStyle,
   presetButtons,
-  open,
+  open, handleOnBackdropPress
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [weeks, setWeeks] = useState([]);
@@ -90,6 +90,7 @@ const DateRangePicker = ({
 
   const _onClose = () => {
     if (typeof open !== "boolean") onClose();
+    handleOnBackdropPress && handleOnBackdropPress()
   };
 
   const onOpen = () => {
@@ -397,11 +398,9 @@ const DateRangePicker = ({
           </View>
         </View>
       </View>
-      {node}
+      {/*{node}*/}
     </>
-  ) : (
-    <>{node}</>
-  );
+  ) : null;
 };
 
 export default DateRangePicker;
